@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robux Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Robux Calculator</h1>
+    <form id="ro-form" onsubmit="handleSubmit(event)">
+      <label>Enter the number of Robux you want to donate:</label><br />
+      <input type="number" id="robuxInput" min="1" />
+      <button type="submit">Calculate Robux</button>
+    </form>
+    <div class="result-box">
+      <div class="sep-box">
+        <p>Robux Donated</p>
+        <p id="robux-dono"></p>
+      </div>
+      <div class="sep-box">
+        <p>Robux Taxed</p>
+        <p id="robux-tax"></p>
+      </div>
+      <div class="sep-box">
+        <p>Robux Recieved</p>
+        <p id="robux-got"></p>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
