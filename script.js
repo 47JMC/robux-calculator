@@ -10,6 +10,10 @@ function handleSubmit(e) {
   const robux_tax_elem = document.getElementById("robux-tax");
   const robux_got_elem = document.getElementById("robux-got");
 
+  robux_dono_elem.classList.remove("opac-animation")
+  robux_tax_elem.classList.remove("opac-animation")
+  robux_got_elem.classList.remove("opac-animation")
+
   robux_dono_elem.textContent = robux_amount;
   robux_tax_elem.textContent = robux_taxed;
   robux_got_elem.textContent = robux_recieved;
