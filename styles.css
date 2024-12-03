@@ -59,7 +59,7 @@ body {
 }
 
 .opac-animation {
-    animation: slide-in 800ms ease 0 1 forwards both;
+    animation: slide-in 500ms ease 0s 1 normal both;
 }
 
 @keyframes slide-in {
