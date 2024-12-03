@@ -13,4 +13,8 @@ function handleSubmit(e) {
   robux_dono_elem.textContent = robux_amount;
   robux_tax_elem.textContent = robux_taxed;
   robux_got_elem.textContent = robux_recieved;
+  
+  robux_dono_elem.classList.add("opac-animation")
+  robux_tax_elem.classList.add("opac-animation")
+  robux_got_elem.classList.add("opac-animation")
 }

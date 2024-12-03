@@ -57,3 +57,19 @@ body {
 .sep-box {
     border-top: 2px solid white;
 }
+
+.opac-animation {
+    animation: slide-in 800ms ease 0 1 forwards both;
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
