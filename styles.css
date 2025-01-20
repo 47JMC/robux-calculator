@@ -55,7 +55,10 @@ body {
 }
 
 .sep-box {
-    border-top: 2px solid white;
+    border: 2px solid white;
+    padding: 15px;
+    border-radius: 0.6rem; /* 1rem = 16px */
+    margin: 0.25;
 }
 
 .opac-animation {
