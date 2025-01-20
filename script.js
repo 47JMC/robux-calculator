@@ -14,11 +14,30 @@ function handleSubmit(e) {
   robux_tax_elem.classList.remove("opac-animation");
   robux_got_elem.classList.remove("opac-animation");
 
-  robux_dono_elem.textContent = robux_amount;
-  robux_tax_elem.textContent = robux_taxed;
-  robux_got_elem.textContent = robux_recieved;
+  robux_dono_elem.textContent = formatNumberWithCommas(robux_amount)
+  robux_tax_elem.textContent = formatNumberWithCommas(robux_taxed)
+  robux_got_elem.textContent = formatNumberWithCommas(robux_recieved)
 
   robux_dono_elem.classList.add("opac-animation");
   robux_tax_elem.classList.add("opac-animation");
   robux_got_elem.classList.add("opac-animation");
 }
+
+function formatNumberWithCommas(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+// Event listener for input
+const inputField = document.getElementById('numberInput');
+const displayField = document.getElementById('formattedNumber');
+
+inputField.addEventListener('input', () => {
+  const value = inputField.value;
+
+  // Ensure it's a valid number
+  if (!isNaN(value) && value.trim() !== '') {
+    displayField.textContent = `Formatted: ${formatNumberWithCommas(value)}`;
+  } else {
+    displayField.textContent = ''; // Clear output for invalid input
+  }
+});
