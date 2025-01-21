@@ -26,18 +26,3 @@ function handleSubmit(e) {
 function formatNumberWithCommas(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
-
-// Event listener for input
-const inputField = document.getElementById('numberInput');
-const displayField = document.getElementById('formattedNumber');
-
-inputField.addEventListener('input', () => {
-  const value = inputField.value;
-
-  // Ensure it's a valid number
-  if (!isNaN(value) && value.trim() !== '') {
-    displayField.textContent = `Formatted: ${formatNumberWithCommas(value)}`;
-  } else {
-    displayField.textContent = ''; // Clear output for invalid input
-  }
-});
