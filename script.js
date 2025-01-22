@@ -1,8 +1,11 @@
 function handleSubmit(e) {
   e.preventDefault();
 
+  // Get value from param
+  const searchParams = new URLSearchParams(window.location.search)
+  const robux_tax_percentage = searchParams.get("percent") || searchParams.get("p") || 30
+
   const robux_amount = document.getElementById("robuxInput").value;
-  const robux_tax_percentage = 30;
   const robux_taxed = parseInt(robux_amount * (robux_tax_percentage / 100));
   const robux_recieved = robux_amount - robux_taxed; // donated robux will always be higher than the robux taxed amount
 
