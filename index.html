@@ -30,7 +30,7 @@
     <h1>Robux Calculator</h1>
     <form id="ro-form" onsubmit="handleSubmit(event)">
       <label>Enter the number of Robux you want to donate:</label><br />
-      <input type="number" id="robuxInput" maxlength="15"/>
+      <input type="number" id="robuxInput" min="1" max="999999999999999" />
       <button type="submit">Calculate Robux</button>
     </form>
     <div class="result-box">
