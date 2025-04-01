@@ -2,8 +2,9 @@ function handleSubmit(e) {
   e.preventDefault();
 
   // Get value from param
-  const searchParams = new URLSearchParams(window.location.search)
-  const robux_tax_percentage = searchParams.get("percent") || searchParams.get("p") || 30
+  const searchParams = new URLSearchParams(window.location.search);
+  const robux_tax_percentage =
+    searchParams.get("percent") || searchParams.get("p") || 30;
 
   const robux_amount = document.getElementById("robuxInput").value;
   const robux_taxed = parseInt(robux_amount * (robux_tax_percentage / 100));
@@ -17,9 +18,9 @@ function handleSubmit(e) {
   robux_tax_elem.classList.remove("opac-animation");
   robux_got_elem.classList.remove("opac-animation");
 
-  robux_dono_elem.textContent = formatNumberWithCommas(robux_amount)
-  robux_tax_elem.textContent = formatNumberWithCommas(robux_taxed)
-  robux_got_elem.textContent = formatNumberWithCommas(robux_recieved)
+  robux_dono_elem.textContent = formatNumberWithCommas(robux_amount);
+  robux_tax_elem.textContent = formatNumberWithCommas(robux_taxed);
+  robux_got_elem.textContent = formatNumberWithCommas(robux_recieved);
 
   robux_dono_elem.classList.add("opac-animation");
   robux_tax_elem.classList.add("opac-animation");
@@ -27,5 +28,5 @@ function handleSubmit(e) {
 }
 
 function formatNumberWithCommas(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
