@@ -1,10 +1,32 @@
+:root {
+    --bg: #000000;
+    --font: #ffffff;
+    --ro-form-input-bg: #000000;
+    --ro-form-input-border: #ffffff;
+    --ro-form-btn-border: #ffffff;
+    --ro-form-btn-bg: #000000;
+    --ro-form-btn-hover: #362d2d;
+    --sep-box-border: #ffffff;
+}
+
+.light-theme {
+    --bg: #ffffff;
+    --font: #000000;
+    --ro-form-input-bg: #ffffff;
+    --ro-form-input-border: #000000;
+    --ro-form-btn-border: #000000;
+    --ro-form-btn-bg: #ffffff;
+    --ro-form-btn-hover: #e6e6e6;
+    --sep-box-border: #000000;
+}
+
 * {
     font-family: "Nunito Sans", sans-serif;
 }
 
 body {
-    background-color: #000000;
-    color: white;
+    background-color: var(--bg);
+    color: var(--font);
     margin: 0;
     padding: 0;
     text-align: center;
@@ -15,21 +37,21 @@ body {
 }
 
 #ro-form input {
-    background-color: #000000;
+    background-color: var(--ro-form-input-bg);
     text-align: center;
     padding: 1;
     border-radius: 12px;
-    border: white solid 2px;
+    border: var(--ro-form-input-border) solid 2px;
     width: 250px;
     height: 35px;
     font-size: medium;
-    color: white;
+    color: var(--font);
 }
 
 #ro-form button[type="submit"] {
-    background-color: #000000;
-    color: white;
-    border: white solid 2px;
+    background-color: var(--ro-form-btn-bg);
+    color: var(--font);
+    border: var(--ro-form-btn-border) solid 2px;
     border-radius: 10px;
     padding: 8px;
     cursor: pointer;
@@ -38,7 +60,7 @@ body {
 }
 
 #ro-form button[type="submit"]:hover {
-    background-color: #362d2d;
+    background-color: var(--ro-form-btn-hover);
 }
 
 .result-box {
@@ -55,7 +77,7 @@ body {
 }
 
 .sep-box {
-    border: 2px solid white;
+    border: 2px solid var(--sep-box-border);
     padding: 15px;
     border-radius: 0.6rem; /* 1rem = 16px */
     margin: 0.25;
