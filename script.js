@@ -1,3 +1,7 @@
+const theme = localStorage.getItem("theme");
+if (theme === "light") document.body.classList.add("light-theme");
+else if (theme === "dark") document.body.classList.remove("light-theme");
+
 function handleSubmit(e) {
   e.preventDefault();
 
@@ -21,4 +25,18 @@ function handleSubmit(e) {
 
 function formatNumberWithCommas(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function toggleTheme() {
+  const body = document.body;
+  const themeToggle = document.getElementById("theme-toggle-span");
+  const isLightMode = body.classList.toggle("light-theme");
+
+  if (isLightMode) {
+    themeToggle.textContent = "dark_mode";
+    localStorage.setItem("theme", "light");
+  } else {
+    themeToggle.textContent = "light_mode";
+    localStorage.setItem("theme", "dark");
+  }
 }

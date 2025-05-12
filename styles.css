@@ -22,6 +22,7 @@
 
 * {
     font-family: "Nunito Sans", sans-serif;
+    transition: 40ms;
 }
 
 body {
@@ -30,6 +31,18 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+#theme-btn {
+    margin: 5px;
+    background-color: var(--bg);
+    border: 2px solid var(--font);
+    color: var(--font);
+    border-radius: 8px;
+    padding: 8px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
 
 #ro-form * {
@@ -56,7 +69,6 @@ body {
     padding: 8px;
     cursor: pointer;
     margin-top: 10px;
-    transition: 400ms;
 }
 
 #ro-form button[type="submit"]:hover {
