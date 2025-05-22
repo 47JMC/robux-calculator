@@ -22,7 +22,7 @@
 
 * {
     font-family: "Nunito Sans", sans-serif;
-    transition: 40ms;
+    transition: 400ms;
 }
 
 body {
@@ -40,7 +40,7 @@ body {
     color: var(--font);
     border-radius: 8px;
     padding: 8px;
-    position: absolute;
+    position: fixed;
     right: 20px;
     top: 20px;
 }
@@ -100,5 +100,12 @@ body {
         flex-direction: column;
         justify-content: center;
 
+    }
+
+    #theme-btn {
+        right: 10px;
+        top: auto;
+        bottom: 20px;
+        z-index: 100;
     }
 }
