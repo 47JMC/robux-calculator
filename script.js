@@ -5,10 +5,9 @@ else if (theme === "dark") document.body.classList.remove("light-theme");
 function handleSubmit(e) {
   e.preventDefault();
 
-  // Get value from param
-  const searchParams = new URLSearchParams(window.location.search);
-  const robux_tax_percentage =
-    searchParams.get("percent") || searchParams.get("p") || 30;
+  const robux_tax_percentage = parseInt(
+    document.getElementById("tax-rate-input").value || 30
+  );
 
   const robux_dono_elem = document.getElementById("robux-dono");
   const robux_tax_elem = document.getElementById("robux-tax");

@@ -4,9 +4,10 @@
     --ro-form-input-bg: #000000;
     --ro-form-input-border: #ffffff;
     --ro-form-btn-border: #ffffff;
-    --ro-form-btn-bg: #000000;
+    --ro-form-btn-bg: #232020;
     --ro-form-btn-hover: #362d2d;
     --sep-box-border: #ffffff;
+    --tax-box-bg: #161515;
 }
 
 .light-theme {
@@ -18,6 +19,7 @@
     --ro-form-btn-bg: #ffffff;
     --ro-form-btn-hover: #e6e6e6;
     --sep-box-border: #000000;
+    --tax-box-bg: #d7c8c8;
 }
 
 * {
@@ -93,6 +95,28 @@ body {
     padding: 15px;
     border-radius: 0.6rem; /* 1rem = 16px */
     margin: 0.25;
+}
+
+#change-tax-box {
+    background-color: var(--tax-box-bg);
+    border: 2px solid var(--ro-form-input-border);
+    padding: 10px;
+    border-radius: 12px;
+    margin: 15px;
+    width: fit-content;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--font);
+}
+
+#change-tax-box input {
+    text-align: center;
+    margin: 0;
+    background-color: var(--ro-form-input-bg);
+    border: var(--ro-form-input-border) solid 2px;
+    color: var(--font);
+    border-radius: 8px;
 }
 
 @media (max-width: 440px) {
