@@ -4,6 +4,7 @@ else if (theme === "dark") document.body.classList.remove("light-theme");
 
 function handleSubmit(e) {
   e.preventDefault();
+  e.currentTarget.reset();
 
   const robux_tax_percentage = parseInt(
     document.getElementById("tax-rate-input").value || 30
@@ -39,3 +40,4 @@ function toggleTheme() {
     localStorage.setItem("theme", "dark");
   }
 }
+
