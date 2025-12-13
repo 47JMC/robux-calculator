@@ -4,7 +4,6 @@ else if (theme === "dark") document.body.classList.remove("light-theme");
 
 function handleSubmit(e) {
   e.preventDefault();
-  e.currentTarget.reset();
 
   const robux_tax_percentage = parseInt(
     document.getElementById("tax-rate-input").value || 30
@@ -21,6 +20,8 @@ function handleSubmit(e) {
   robux_dono_elem.textContent = formatNumberWithCommas(robux_amount);
   robux_tax_elem.textContent = formatNumberWithCommas(robux_taxed);
   robux_got_elem.textContent = formatNumberWithCommas(robux_recieved);
+
+  e.target.reset()
 }
 
 function formatNumberWithCommas(number) {
