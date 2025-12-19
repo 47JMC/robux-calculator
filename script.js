@@ -2,6 +2,15 @@ const theme = localStorage.getItem("theme");
 if (theme === "light") document.body.classList.add("light-theme");
 else if (theme === "dark") document.body.classList.remove("light-theme");
 
+function showError() {
+  const elem = document.getElementById("hidden-text");
+  elem.style.display = "block"; // show immediately
+
+  setTimeout(() => {
+    elem.style.display = "none"; // hide after 5 seconds
+  }, 2500);
+}
+
 function handleSubmit(e) {
   e.preventDefault();
 
@@ -14,6 +23,12 @@ function handleSubmit(e) {
   const robux_got_elem = document.getElementById("robux-got");
 
   const robux_amount = document.getElementById("robuxInput").value;
+
+  if (robux_amount == "" || isNaN(robux_amount)) {
+    showError();
+    return;
+  }
+
   const robux_taxed = parseInt(robux_amount * (robux_tax_percentage / 100));
   const robux_recieved = robux_amount - robux_taxed; // donated robux will always be higher than the robux taxed amount
 
@@ -21,7 +36,7 @@ function handleSubmit(e) {
   robux_tax_elem.textContent = formatNumberWithCommas(robux_taxed);
   robux_got_elem.textContent = formatNumberWithCommas(robux_recieved);
 
-  e.target.reset()
+  e.target.reset();
 }
 
 function formatNumberWithCommas(number) {
@@ -41,4 +56,3 @@ function toggleTheme() {
     localStorage.setItem("theme", "dark");
   }
 }
-

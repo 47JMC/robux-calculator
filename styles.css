@@ -97,6 +97,13 @@ body {
     margin: 0.25;
 }
 
+#hidden-text {
+    color: red;
+    display: none;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 120%;
+}
+
 #change-tax-box {
     background-color: var(--tax-box-bg);
     border: 2px solid var(--ro-form-input-border);
