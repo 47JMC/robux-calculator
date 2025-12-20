@@ -77,6 +77,20 @@ body {
     background-color: var(--ro-form-btn-hover);
 }
 
+#ro-form button[type="reset"] {
+    background-color: var(--ro-form-btn-bg);
+    color: var(--font);
+    border: var(--ro-form-btn-border) solid 2px;
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#ro-form button[type="reset"]:hover {
+    background-color: var(--ro-form-btn-hover);
+}
+
 .result-box {
     display: flex;
     margin-top: 10px;
