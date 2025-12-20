@@ -35,8 +35,6 @@ function handleSubmit(e) {
   robux_dono_elem.textContent = formatNumberWithCommas(robux_amount);
   robux_tax_elem.textContent = formatNumberWithCommas(robux_taxed);
   robux_got_elem.textContent = formatNumberWithCommas(robux_recieved);
-
-  e.target.reset();
 }
 
 function formatNumberWithCommas(number) {
