@@ -131,6 +131,15 @@ body {
     color: var(--font);
 }
 
+#change-tax-box {
+    font-size: 1rem;
+    padding: 12px;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
 #change-tax-box input {
     text-align: center;
     margin: 0;
