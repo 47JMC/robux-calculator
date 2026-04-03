@@ -1,46 +1,90 @@
 const theme = localStorage.getItem("theme");
 if (theme === "light") document.body.classList.add("light-theme");
-else if (theme === "dark") document.body.classList.remove("light-theme");
 
-function showError() {
-  const elem = document.getElementById("hidden-text");
-  elem.style.display = "block"; // show immediately
+const elements = {
+  input: document.getElementById("robuxInput"),
+  taxRate: document.getElementById("tax-rate-input"),
+  dono: document.getElementById("robux-dono"),
+  tax: document.getElementById("robux-tax"),
+  got: document.getElementById("robux-got"),
+  decimal: document.getElementById("decimalToggle"),
+  error: document.getElementById("hidden-text"),
+};
 
-  setTimeout(() => {
-    elem.style.display = "none"; // hide after 5 seconds
-  }, 2500);
+function resetCalculator() {
+  elements.input.value = "";
+  elements.taxRate.value = "";
+  elements.dono.textContent = "";
+  elements.tax.textContent = "";
+  elements.got.textContent = "";
 }
 
-function handleSubmit(e) {
-  e.preventDefault();
+// 🔥 Error display with restartable animation
+function showError() {
+  const elem = elements.error;
+  elem.classList.remove("error-show");
+  void elem.offsetWidth; // force reflow
+  elem.classList.add("error-show");
 
-  const robux_tax_percentage = parseInt(
-    document.getElementById("tax-rate-input").value || 30
-  );
+  setTimeout(() => elem.classList.remove("error-show"), 2500);
+}
 
-  const robux_dono_elem = document.getElementById("robux-dono");
-  const robux_tax_elem = document.getElementById("robux-tax");
-  const robux_got_elem = document.getElementById("robux-got");
+// Tax calculation
+function calculateTax(amount, taxPercentage, decimal) {
+  const tax = amount * (taxPercentage / 100);
+  return decimal ? Number(tax.toFixed(2)) : Math.floor(tax);
+}
 
-  const robux_amount = document.getElementById("robuxInput").value;
+// Format numbers (handles decimals properly)
+function formatNumber(number) {
+  return number.toLocaleString();
+}
 
-  if (robux_amount == "" || isNaN(robux_amount)) {
+// 🔥 Core logic (reusable)
+function calculateAndRender() {
+  const raw = elements.input.value;
+
+  if (raw.trim() === "") {
     showError();
     return;
   }
 
-  const robux_taxed = parseInt(robux_amount * (robux_tax_percentage / 100));
-  const robux_recieved = robux_amount - robux_taxed; // donated robux will always be higher than the robux taxed amount
+  const robux_amount = Number(raw);
+  const robux_tax_percentage = Number(elements.taxRate.value || 30);
 
-  robux_dono_elem.textContent = formatNumberWithCommas(robux_amount);
-  robux_tax_elem.textContent = formatNumberWithCommas(robux_taxed);
-  robux_got_elem.textContent = formatNumberWithCommas(robux_recieved);
+  if (
+    !Number.isFinite(robux_amount) ||
+    robux_amount < 0 ||
+    !Number.isFinite(robux_tax_percentage) ||
+    robux_tax_percentage < 0
+  ) {
+    showError();
+    return;
+  }
+
+  const decimal = elements.decimal.checked;
+
+  const robux_taxed = calculateTax(robux_amount, robux_tax_percentage, decimal);
+
+  const robux_received = decimal
+    ? Number((robux_amount - robux_taxed).toFixed(2))
+    : robux_amount - robux_taxed;
+
+  elements.dono.textContent = formatNumber(robux_amount);
+  elements.tax.textContent = formatNumber(robux_taxed);
+  elements.got.textContent = formatNumber(robux_received);
 }
 
-function formatNumberWithCommas(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function handleSubmit(e) {
+  e.preventDefault();
+  calculateAndRender();
 }
 
+elements.input.addEventListener("input", calculateAndRender);
+elements.taxRate.addEventListener("input", calculateAndRender);
+elements.decimal.addEventListener("change", calculateAndRender);
+
+// 🔥 Theme toggle
 function toggleTheme() {
   const body = document.body;
   const themeToggle = document.getElementById("theme-toggle-span");

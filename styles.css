@@ -28,6 +28,7 @@
 }
 
 body {
+    font-display: swap;
     background-color: var(--bg);
     color: var(--font);
     margin: 0;
@@ -63,7 +64,8 @@ body {
     color: var(--font);
 }
 
-#ro-form button[type="submit"] {
+
+#ro-form button{
     background-color: var(--ro-form-btn-bg);
     color: var(--font);
     border: var(--ro-form-btn-border) solid 2px;
@@ -73,21 +75,7 @@ body {
     margin-top: 10px;
 }
 
-#ro-form button[type="submit"]:hover {
-    background-color: var(--ro-form-btn-hover);
-}
-
-#ro-form button[type="reset"] {
-    background-color: var(--ro-form-btn-bg);
-    color: var(--font);
-    border: var(--ro-form-btn-border) solid 2px;
-    border-radius: 10px;
-    padding: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-#ro-form button[type="reset"]:hover {
+#ro-form button:hover {
     background-color: var(--ro-form-btn-hover);
 }
 
@@ -109,13 +97,6 @@ body {
     padding: 15px;
     border-radius: 0.6rem; /* 1rem = 16px */
     margin: 0.25;
-}
-
-#hidden-text {
-    color: red;
-    display: none;
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 120%;
 }
 
 #change-tax-box {
@@ -147,6 +128,38 @@ body {
     border: var(--ro-form-input-border) solid 2px;
     color: var(--font);
     border-radius: 8px;
+}
+
+.decimal-toggle-box {
+    accent-color: var(--font);
+}
+
+.decimal-toggle-box label {
+    color: var(--font);
+    font-size: 1rem;   
+}
+
+.decimal-toggle-box input {
+    width: 1rem;
+    height: 1rem;
+}
+
+.decimal-toggle-box:focus {
+    outline: none;
+    border: 2px solid var(--font);
+}
+
+#hidden-text {
+    color: red;
+    display: none;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 120%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.error-show {
+    opacity: 1;
 }
 
 @media (max-width: 440px) {
